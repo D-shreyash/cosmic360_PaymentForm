@@ -61,7 +61,6 @@ function App() {
     if (sign && !sign.isEmpty() && url) {
       // If signature is not empty, save it
       // handleGenerateSign();
-      console.log(url);
       toast.success("Payment successfull");
     }
     let data = {
@@ -75,7 +74,10 @@ function App() {
       signatureImageUrl: url || null,
     };
     try {
-      await axios.post("http://localhost:8000/api/user/shipping-form", data);
+      await axios.post(
+        "https://cosmic360-backend.onrender.com/api/user/shipping-form",
+        data
+      );
       console.log("Successful");
       setFormData({
         name: "",
